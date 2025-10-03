@@ -8,7 +8,7 @@ const cities = [
 
 export default function Properties() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-16 bg-white">
       {/* Heading */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
         <div>
