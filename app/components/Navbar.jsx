@@ -21,7 +21,7 @@ export default function Navbar() {
           {/* Brand Logo */}
           <div className="flex items-center gap-2">
             <img
-              src="/Images/logo-green.png"
+              src="/images/logo-green.png"
               alt="JustHome Logo"
               className="w-[148px] h-[41px] object-contain"
             />
