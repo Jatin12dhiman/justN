@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const steps = [
   {
@@ -38,10 +39,12 @@ const HowItWorks = () => {
             <div key={index} className="flex flex-col items-center p-4">
               {/* Icon */}
               <div className="w-20 h-20 bg-[#F0E6D3] rounded-full flex items-center justify-center">
-                <img
+                <Image
                   src={step.icon}
                   alt={step.title}
-                  className="w-10 h-10 object-contain"
+                  width={40}
+                  height={40}
+                  className="object-contain"
                 />
               </div>
 

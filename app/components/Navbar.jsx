@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,12 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Brand Logo */}
           <div className="flex items-center gap-2">
-            <img
+            <Image
               src="/images/logo-green.png"
               alt="JustHome Logo"
-              className="w-[148px] h-[41px] object-contain"
+              width={148}
+              height={41}
+              className="object-contain"
             />
           </div>
 
@@ -72,10 +75,12 @@ export default function Navbar() {
 
             {/* Phone Icon */}
             <button className="inline-flex items-center justify-center">
-              <img
+              <Image
                 src="/images/fc.png"
                 alt="Phone Icon"
-                className="w-7 h-7 object-contain"
+                width={28}
+                height={28}
+                className="object-contain"
               />
             </button>
 

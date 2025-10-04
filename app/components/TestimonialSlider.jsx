@@ -1,4 +1,5 @@
 // components/TestimonialSlider.jsx
+import Image from "next/image"; 
 
 const testimonials = [
   {
@@ -7,7 +8,7 @@ const testimonials = [
     title: "Designer",
     quote:
       "Searches for multiplexes, property comparisons, and the loan estimator. Works great. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dores.",
-    imageUrl: "/images/t1.png", // ✅ put in /public/images/
+    imageUrl: "/images/t1.png", 
   },
 ];
 
@@ -25,9 +26,11 @@ export default function TestimonialSlider() {
               {/* LEFT IMAGE */}
               <div className="relative w-full max-w-[300px] h-[350px] md:w-[350px] md:h-[450px] flex-shrink-0">
                 <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                  <img
+                  <Image
                     src={t.imageUrl}
                     alt={`Testimonial from ${t.name}`}
+                    width={350}
+                    height={450} 
                     className="w-full h-full object-cover object-center rounded-3xl"
                   />
                 </div>

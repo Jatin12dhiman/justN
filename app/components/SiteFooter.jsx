@@ -1,9 +1,8 @@
 import React from "react";
+import Image from "next/image"; 
 
-// Dark green color for buttons and app store links
 const DARK_GREEN = "#2A524A";
 
-// Mock navigation data
 const navData = {
   discover: ["Miami", "New York", "Chicago", "Florida", "Los Angeles", "San Diego"],
   quickLinks: ["About", "Contact", "FAQ's", "Blog", "Pricing Plans", "Privacy Policy", "Terms & Conditions"],
@@ -14,7 +13,6 @@ const navData = {
   },
 };
 
-// Simple link component
 const FooterLink = ({ href = "#", children }) => (
   <a href={href} className="text-gray-600 hover:text-gray-900 text-base">
     {children}
@@ -25,23 +23,27 @@ const SiteFooter = () => {
   return (
     <footer className="bg-white pt-10 text-gray-900 border-t border-gray-100 font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-      
         {/* Top section: Logo + Socials */}
         <div className="flex justify-between items-center pb-8 border-b border-gray-100">
-          {/* Logo */}
-          <img src="/images/logo-green.png" alt="Logo" className="h-8 w-auto" />
+          {/* Logo with defined width/height */}
+          <Image
+            src="/images/logo-green.png"
+            alt="Logo"
+            width={160}
+            height={40}
+            className="h-8 w-auto"
+          />
 
           {/* Socials with label */}
           <div className="flex items-center space-x-4">
-            {/* Text label */}
             <span className="text-gray-700 font-semibold">Follow Us:</span>
 
-            {/* Icons */}
+            {/*  Social Icons with width/height */}
             <div className="flex space-x-3">
-              <img src="/images/face.png" alt="Facebook" className="w-5 h-5" />
-              <img src="/images/twitter.png" alt="Twitter" className="w-5 h-5" />
-              <img src="/images/insta.png" alt="Instagram" className="w-5 h-5" />
-              <img src="/images/linkedin.png" alt="LinkedIn" className="w-5 h-5" />
+              <Image src="/images/face.png" alt="Facebook" width={20} height={20} className="w-5 h-5" />
+              <Image src="/images/twitter.png" alt="Twitter" width={20} height={20} className="w-5 h-5" />
+              <Image src="/images/insta.png" alt="Instagram" width={20} height={20} className="w-5 h-5" />
+              <Image src="/images/linkedin.png" alt="LinkedIn" width={20} height={20} className="w-5 h-5" />
             </div>
           </div>
         </div>
@@ -49,7 +51,7 @@ const SiteFooter = () => {
         {/* Main Grid */}
         <div className="grid grid-cols-2 md:grid-cols-8 gap-8 py-10">
           {/* Subscribe */}
-          <div className="col-span-2 md:col-span-2 ">
+          <div className="col-span-2 md:col-span-2">
             <h4 className="font-bold mb-3">Subscribe</h4>
             <div className="flex mb-2">
               <input
@@ -85,14 +87,14 @@ const SiteFooter = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="col-span-1 md:col-span-1 ">
-            <h4 className="font-bold ">Contact Us</h4>
+          <div className="col-span-1 md:col-span-1">
+            <h4 className="font-bold">Contact Us</h4>
             <p className="break-words">{navData.contact.email}</p>
             <p>{navData.contact.phone}</p>
           </div>
 
           {/* Address */}
-          <div className=" col-span-1 md:col-span-1 ">
+          <div className="col-span-1 md:col-span-1">
             <h4 className="font-bold mb-3">Our Address</h4>
             {navData.contact.address.split("\n").map((line, i) => (
               <p key={i}>{line}</p>
@@ -101,12 +103,18 @@ const SiteFooter = () => {
 
           {/* App Links */}
           <div className="flex flex-col space-y-2 col-span-2">
-            {/* Apple Store */}
+            {/*  Apple Store */}
             <a
               href="#"
               className="flex items-center bg-[#2A524A] rounded-xl px-4 py-3 hover:opacity-90"
             >
-              <img src="/images/ap.png" alt="Apple Store" className="h-8 w-8" />
+              <Image
+                src="/images/ap.png"
+                alt="Apple Store"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <span className="mx-3 w-px h-6 bg-white"></span>
               <div className="flex flex-col">
                 <span className="text-xs text-white">Download on the</span>
@@ -119,7 +127,13 @@ const SiteFooter = () => {
               href="#"
               className="flex items-center bg-[#2A524A] rounded-xl px-4 py-3 hover:opacity-90"
             >
-              <img src="/images/gp.png" alt="Google Play" className="h-8 w-8" />
+              <Image
+                src="/images/gp.png"
+                alt="Google Play"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <span className="mx-3 w-px h-6 bg-white"></span>
               <div className="flex flex-col">
                 <span className="text-xs text-white">Get it on</span>

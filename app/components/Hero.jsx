@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+
 const Hero = () => {
   return (
     <div className="relative bg-[#FFF8F6] py-16">
@@ -92,16 +93,20 @@ const Hero = () => {
           <div className="relative w-full h-[300px] sm:h-[380px] md:h-[500px] lg:h-[600px] xl:h-[651px] mx-auto max-w-[700px] lg:max-w-[800px] xl:max-w-[900px]">
             {/* Inner clip */}
             <div className="relative h-full w-full overflow-hidden rounded-[22px]">
-              <img
-                src="/images/slider.png"  
+              <Image
+                src="/images/slider.png"
                 alt="Featured property"
+                width={900}
+                height={650}
                 className="h-full w-full object-contain object-center"
               />
             </div>
-            <div className="absolute bottom-[-40] right-4 sm:bottom-[-60] sm:right-6 md:bottom-[-80px] md:right-[-30px] z-10 w-[150px] sm:w-[220px] md:w-[300px] rounded-2xl overflow-hidden ">
-              <img
+            <div className="absolute bottom-[-40] right-4 sm:bottom-[-60] sm:right-6 md:bottom-[-80px] md:right-[-30px] z-10 w-[150px] sm:w-[220px] md:w-[300px] rounded-2xl overflow-hidden">
+              <Image
                 src="/images/stry.png"
                 alt="Overlay"
+                width={300}
+                height={200}
                 className="w-full h-auto block"
               />
             </div>

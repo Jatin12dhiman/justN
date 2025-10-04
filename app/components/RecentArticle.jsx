@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 // Mock data
 const articles = [
@@ -52,9 +53,11 @@ const RecentArticles = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {articles.map((article, i) => (
             <div key={i} className="rounded-lg overflow-hidden shadow bg-white">
-              <img
+              <Image
                 src={article.imageUrl}
                 alt={article.title}
+                width={400}
+                height={260}
                 className="w-full h-auto object-cover"
               />
               <div className="p-4">
@@ -76,11 +79,13 @@ const RecentArticles = () => {
           {/* Responsive Logo Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-6 items-center justify-items-center opacity-80">
             {logos.map((logo, i) => (
-              <img
+              <Image
                 key={i}
                 src={logo.url}
                 alt={logo.name}
-                className="object-contain w-[120px] h-[40px]"
+                width={120}
+                height={40}
+                className="object-contain"
               />
             ))}
           </div>

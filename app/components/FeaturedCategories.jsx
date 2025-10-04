@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; 
 
 // Categories data with PNG icons
 const categories = [
@@ -18,7 +19,13 @@ const CategoryCard = ({ title, properties, icon }) => (
                min-h-[160px] md:min-h-[200px]"
   >
     <div className="mb-4 p-4 bg-white rounded-full flex items-center justify-center">
-      <img src={icon} alt={title} className="w-12 h-12 object-contain" />
+      <Image
+        src={icon}
+        alt={title}
+        width={48} 
+        height={48} 
+        className="object-contain"
+      />
     </div>
     <h3 className="text-lg font-bold text-gray-900 mt-2 text-center">{title}</h3>
     <p className="text-sm text-gray-500 mt-1 text-center">{properties} Properties</p>

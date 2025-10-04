@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const cities = [
   { name: "New York", properties: 8, image: "/images/pr1.png" },
   { name: "San Diego", properties: 0, image: "/images/pr2.png" },
@@ -46,9 +48,11 @@ export default function Properties() {
           >
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-md overflow-hidden relative">
-                <img
+                <Image
                   src={city.image}
                   alt={city.name}
+                  width={48}
+                  height={48}
                   className="w-full h-full object-cover rounded-md"
                 />
               </div>
