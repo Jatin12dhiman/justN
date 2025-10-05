@@ -2,8 +2,8 @@
 import Image from "next/image";
 
 const GallerySection = () => (
-  <div className="flex flex-col lg:flex-row gap-1">
-    <div className="relative h-[300px] lg:w-2/3 rounded-lg overflow-hidden">
+  <div className="flex flex-col lg:flex-row gap-1 px-2">
+    <div className="relative h-[300px] lg:w-2/3 rounded-lg overflow-hidden ">
       <Image
         src="/images/bld1.jpg"
         alt="Bricks Marvella apartment building"

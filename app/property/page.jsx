@@ -32,7 +32,7 @@ const Property = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden max-w-6xl mx-auto my-10 font-sans">
+    <div className="bg-white rounded-lg overflow-hidden max-w-6xl mx-auto my-10 font-sans ">
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 relative">
         {/* LEFT SIDE */}
