@@ -1,18 +1,18 @@
-
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const properties = [
-  {
-    features: ["Featured"],
-    name: "Luxury Family Home",
+  const properties = [
+    {
+      features: ["Featured"],
+      name: "Luxury Family Home",
     price: "$395,000",
-    address: "1800-1818 79th St",
-    beds: 4,
-    baths: 1,
-    sqft: 400,
-    image: "/images/prt1.png",
-  },
+      address: "1800-1818 79th St",
+      beds: 4,
+      baths: 1,
+      sqft: 400,
+      image: "/images/prt1.png",
+    },
   {
     status: "For Sale",
     features: [],
@@ -96,104 +96,103 @@ const FeaturedProperties = () => {
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {properties.map((property, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 p-2"
-          >
-            <div className="relative w-full h-60">
-              <Image
-                src={property.image}
-                alt={property.name}
-                width={500}
-                height={240}
-                className="w-full h-full object-cover rounded-md"
-              />
+          <Link href="/property" key={index} className="block group">
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden transition-shadow duration-300 p-2 hover:shadow-xl cursor-pointer">
+              <div className="relative w-full h-60">
+                <Image
+                  src={property.image}
+                  alt={property.name}
+                  width={500}
+                  height={240}
+                  className="w-full h-full object-cover rounded-md"
+                />
 
-              {/* Status badge (only if not 1st or 6th item) */}
-              {index !== 0 && index !== 5 && (
-                <div className="absolute top-4 left-4 flex space-x-2 ">
-                  <span className="bg-green-900 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    {property.status}
+                {/* Status badge (only if not 1st or 6th item) */}
+                {index !== 0 && index !== 5 && (
+                  <div className="absolute top-4 left-4 flex space-x-2 ">
+                    <span className="bg-green-900 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      {property.status}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              <div className="p-4">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {property.name}
+                  </h3>
+                  <span className="text-lg font-bold text-[#E7C873]">
+                    {property.price}
                   </span>
                 </div>
-              )}
-            </div>
 
-            <div className="p-4">
-              <div className="flex justify-between items-start">
-                <h3 className="text-lg font-bold text-gray-900">
-                  {property.name}
-                </h3>
-                <span className="text-lg font-bold text-[#E7C873]">
-                  {property.price}
-                </span>
-              </div>
-
-              <div className="flex items-center mt-1 text-sm text-gray-500 space-x-1">
-                <Image
-                  src="/images/loc.png"
-                  alt="Location"
-                  width={14}
-                  height={14}
-                />
-                <p>{property.address}</p>
-              </div>
-
-              <div className="flex space-x-4 mt-4 text-gray-500">
-                <div className="flex items-center space-x-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  <span className="text-sm">{property.beds} Beds</span>
+                <div className="flex items-center mt-1 text-sm text-gray-500 space-x-1">
+                  <Image
+                    src="/images/loc.png"
+                    alt="Location"
+                    width={14}
+                    height={14}
+                  />
+                  <p>{property.address}</p>
                 </div>
-                <div className="flex items-center space-x-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8 7V3m8 4V3m-9 8h8m-8 4h8m4-4h.01M3 15h20M3 21h20a2 2 0 002-2v-4a2 2 0 00-2-2H3a2 2 0 00-2 2v4a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span className="text-sm">{property.baths} Baths</span>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span className="text-sm">{property.sqft} sqft</span>
+
+                <div className="flex space-x-4 mt-4 text-gray-500">
+                  <div className="flex items-center space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      />
+                    </svg>
+                    <span className="text-sm">{property.beds} Beds</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8 7V3m8 4V3m-9 8h8m-8 4h8m4-4h.01M3 15h20M3 21h20a2 2 0 002-2v-4a2 2 0 00-2-2H3a2 2 0 00-2 2v4a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">{property.baths} Baths</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span className="text-sm">{property.sqft} sqft</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
