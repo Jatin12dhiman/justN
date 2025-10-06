@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="relative bg-[#FFF8F6] py-16">
+    <div className="relative bg-[#FFF8F6] py-10 md:py-16">
       <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center px-4 ">
-        
+
         {/* Left Side: Text and Search Form */}
         <div className="order-2 md:order-1 ">
           <p className="text-sm text-gray-500">
@@ -90,18 +90,58 @@ const Hero = () => {
         {/* Right Side: Single Image */}
         <div className="relative order-1 md:order-2 w-full">
           {/* Outer card */}
-          <div className="relative w-full h-[300px] sm:h-[380px] md:h-[500px] lg:h-[600px] xl:h-[651px] mx-auto max-w-[700px] lg:max-w-[800px] xl:max-w-[900px]">
+          <div className="relative w-full h-auto md:h-[500px] lg:h-[600px] xl:h-[651px] mx-auto max-w-[700px] lg:max-w-[800px] xl:max-w-[900px]">
             {/* Inner clip */}
-            <div className="relative h-full w-full overflow-hidden rounded-[22px]">
-              <Image
-                src="/images/slider.png"
-                alt="Featured property"
-                width={900}
-                height={650}
-                className="h-full w-full object-contain object-center"
-              />
+            <div className="relative h-full w-full overflow-hidden rounded-[22px] p-1 sm:p-1.5">
+              <div className="grid grid-cols-2 gap-1 sm:gap-1 md:gap-1 h-full">
+                {/* LEFT COLUMN */}
+                <div className="col-span-1 h-full flex flex-col gap-1">
+                  {/* LEFT TOP IMAGE (≈70%) */}
+                  <div className="relative w-full overflow-hidden rounded-tl-[190px] rounded-bl-[40px] aspect-[3/4] md:aspect-auto md:basis-[70%] md:grow-0 md:shrink-0 md:h-0">
+                    <Image
+                      src="/images/frm3.jpg"
+                      alt="Luxury home exterior"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  {/* LEFT BOTTOM IMAGE (≈30%) */}
+                  <div className="relative w-full overflow-hidden rounded-l-[40px] aspect-[4/3] md:aspect-auto md:basis-[30%] md:grow-0 md:shrink-0 md:h-0">
+                    <Image
+                      src="/images/frm2.jpg"
+                      alt="Garden"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                {/* RIGHT COLUMN */}
+                <div className='col-span-1 h-full flex flex-col gap-1'>
+                  {/* RIGHT TOP IMAGE (≈35%) */}
+                  <div className="relative w-full overflow-hidden rounded-r-[40px] aspect-[4/3] sm:aspect-[16/9] md:aspect-auto md:basis-[35%] md:grow-0 md:shrink-0 md:h-0">
+                    <Image
+                      src="/images/frm1.jpg"
+                      alt="Living room"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {/* RIGHT BOTTOM IMAGE (≈65%)) */}
+                  <div className="relative w-full overflow-hidden rounded-br-[190px] rounded-r-[40px] aspect-[3/4] md:aspect-auto md:basis-[65%] md:grow-0 md:shrink-0 md:h-0">
+                    <Image
+                      src="/images/frm5.jpg"
+                      alt="Kitchen"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+              </div>
+
             </div>
-            <div className="absolute bottom-[-40] right-4 sm:bottom-[-60] sm:right-6 md:bottom-[-80px] md:right-[-30px] z-10 w-[150px] sm:w-[220px] md:w-[300px] rounded-2xl overflow-hidden">
+            <div className="absolute bottom-[-30px] right-4 sm:bottom-[-40px] sm:right-6 md:bottom-[-60px] md:right-[-30px] z-10 w-[150px] sm:w-[220px] md:w-[250px] lg:w-[300px] rounded-2xl overflow-hidden">
               <Image
                 src="/images/stry.png"
                 alt="Overlay"
