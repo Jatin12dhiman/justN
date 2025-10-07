@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SrchBox from './SrchBox';
 
 const Hero = () => {
   return (
@@ -18,59 +19,7 @@ const Hero = () => {
 
           {/* Search Box */}
           <div className="relative mt-12 rounded-2xl bg-white shadow-lg px-4 w-full py-4 sm:w-[95%] md:w-[650px] lg:w-[750px] xl:w-[850px] mx-auto z-10">
-            <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_auto] gap-4 md:items-center ">
-              {/* Keyword */}
-              <div className="relative">
-                <label className="block text-xs font-medium text-neutral-400 mb-1">Keyword</label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Enter Keyword"
-                    className="w-full rounded-xl border border-neutral-200 pl-10 pr-3 py-2.5 text-sm outline-none focus:border-emerald-400"
-                  />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Status */}
-              <div className="md:border-l md:border-neutral-200 md:pl-6">
-                <label className="block text-xs font-medium text-neutral-400 mb-1">Status</label>
-                <select className="w-full rounded-xl border border-neutral-200 px-3 py-2.5 text-sm outline-none focus:border-emerald-400">
-                  <option>All Status</option>
-                  <option>For Rent</option>
-                  <option>For Sale</option>
-                </select>
-              </div>
-
-              {/* Type */}
-              <div className="md:border-l md:border-neutral-200 md:pl-6">
-                <label className="block text-xs font-medium text-neutral-400 mb-1">Type</label>
-                <select className="w-full rounded-xl border border-neutral-200 px-3 py-2.5 text-sm outline-none focus:border-emerald-400">
-                  <option>All Type</option>
-                  <option>Apartment</option>
-                  <option>Villa</option>
-                  <option>Studio</option>
-                </select>
-              </div>
-
-              {/* Actions */}
-              <div className="flex items-end justify-end gap-2">
-                <button className="rounded-xl border border-neutral-200 px-4 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">
-                  Filter
-                </button>
-                <button className="rounded-xl bg-[#E7C873] px-5 py-2.5 text-sm font-semibold text-neutral-900 hover:bg-amber-500">
-                  Search
-                </button>
-              </div>
-            </div>
+            <SrchBox/>
           </div>
 
           {/* Popular Searches */}
@@ -90,39 +39,39 @@ const Hero = () => {
 
         {/* Right Side */}
         <div className="relative order-1 md:order-2 w-full">
-        <div className="absolute top-[12%] left-1/2 sm:left-[30%] transform -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[75%] xl:w-[65%] z-20">
-                {/* Removed p-2.5 from the outer flex and added p-1 to the input wrapper for better control */}
-                <div className="flex items-center bg-white rounded-full shadow-2xl transition-all duration-300 hover:shadow-2xl border-2 border-gray-100/50">
-                    {/* Input wrapper for proper internal padding (p-1) and full rounding on the left */}
-                    <div className="flex-grow p-1">
-                    
-                        <input
-                            type="text"
-                            placeholder="Search Property"
-                            // Increased padding on the input for separation, reduced text size on mobile
-                            className="w-full bg-transparent text-base sm:text-lg font-medium text-gray-700 placeholder-gray-500 pl-6 pr-4 py-3 focus:outline-none"
-                        />
-                    </div>
-                    
-                    {/* Button Size Increase on Mobile (w-11 h-11) for perfect circle look */}
-                    <Link href="/search">
-                    <button className="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-[#1F4B43] rounded-full text-white hover:bg-emerald-700 transition-colors shadow-lg flex-shrink-0 mr-1.5">
-                        {/* Search Icon Size Reduction on Small Screen */}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5 sm:h-6 sm:w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </button>
-                    </Link>
-                </div>
+          <div className="absolute top-[12%] left-1/2 sm:left-[30%] transform -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[75%] xl:w-[65%] z-20">
+            {/* Removed p-2.5 from the outer flex and added p-1 to the input wrapper for better control */}
+            <div className="flex items-center bg-white rounded-full shadow-2xl transition-all duration-300 hover:shadow-2xl border-2 border-gray-100/50">
+              {/* Input wrapper for proper internal padding (p-1) and full rounding on the left */}
+              <div className="flex-grow p-1">
+
+                <input
+                  type="text"
+                  placeholder="Search Property"
+                  // Increased padding on the input for separation, reduced text size on mobile
+                  className="w-full bg-transparent text-base sm:text-lg font-medium text-gray-700 placeholder-gray-500 pl-6 pr-4 py-3 focus:outline-none"
+                />
+              </div>
+
+              {/* Button Size Increase on Mobile (w-11 h-11) for perfect circle look */}
+              <Link href="/search">
+                <button className="flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 bg-[#1F4B43] rounded-full text-white hover:bg-emerald-700 transition-colors shadow-lg flex-shrink-0 mr-1.5">
+                  {/* Search Icon Size Reduction on Small Screen */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 sm:h-6 sm:w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </Link>
             </div>
-            
+          </div>
+
           {/* Outer card */}
           <div className="relative w-full h-auto md:h-[500px] lg:h-[600px] xl:h-[651px] mx-auto max-w-[700px] lg:max-w-[800px] xl:max-w-[900px]">
             {/* Inner clip */}
@@ -132,14 +81,14 @@ const Hero = () => {
                 <div className="col-span-1 h-full flex flex-col gap-1">
                   {/* LEFT TOP IMAGE (≈70%) */}
                   <div className="relative w-full overflow-hidden rounded-tl-[190px] rounded-bl-[40px] aspect-[3/4] md:aspect-auto md:basis-[70%] md:grow-0 md:shrink-0 md:h-0">
-                  
+
                     <Image
                       src="/images/frm3.jpg"
                       alt="Luxury home exterior"
                       fill
                       className="object-cover"
                     />
-                     
+
                   </div>
                   {/* LEFT BOTTOM IMAGE (≈30%) */}
                   <div className="relative w-full overflow-hidden rounded-l-[40px] aspect-[4/3] md:aspect-auto md:basis-[30%] md:grow-0 md:shrink-0 md:h-0">
