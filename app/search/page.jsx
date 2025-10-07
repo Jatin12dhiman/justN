@@ -1,9 +1,9 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 
-export default function Search() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const keyword = searchParams.get("keyword") || "";
   const status = searchParams.get("status") || "All Status";
@@ -275,5 +275,19 @@ export default function Search() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Search() {
+  return (
+    <Suspense
+      fallback={
+        <div className="container mx-auto px-4 py-6">
+          <p className="text-gray-600">Loading results…</p>
+        </div>
+      }
+    >
+      <SearchContent />
+    </Suspense>
   );
 }
