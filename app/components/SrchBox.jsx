@@ -6,21 +6,30 @@ export default function SrchBox() {
   const router = useRouter();
 
   const [keyword, setKeyword] = useState("");
-  const [status, setStatus] = useState("All Status");
-  const [type, setType] = useState("All Type");
+  const [status, setStatus] = useState("");
+  const [type, setType] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
 
-    // create search query string
-    const query = new URLSearchParams({
-      keyword,
-      status,
-      type,
-    }).toString();
+    const params = {};
 
-    // navigate to /search page with query params
-    router.push(`/search?${query}`);
+    // Sirf populated values add karo
+    if (keyword && keyword.trim() !== "") {
+      params.keyword = keyword.trim();
+    }
+    
+    if (status && status !== "All Status" && status !== "") {
+      params.transactionType = status;
+    }
+    
+    if (type && type !== "All Type" && type !== "") {
+      params.propertyType = type;
+    }
+
+    const query = new URLSearchParams(params).toString();
+    
+    router.push(query ? `/search?${query}` : '/search');
   };
 
   return (
@@ -58,7 +67,6 @@ export default function SrchBox() {
         </div>
       </div>
 
-      {/* Status */}
       <div className="md:border-l md:border-neutral-200 md:pl-6">
         <label className="block text-xs font-medium text-neutral-400 mb-1">
           Status
@@ -68,9 +76,9 @@ export default function SrchBox() {
           onChange={(e) => setStatus(e.target.value)}
           className="w-full rounded-xl border border-neutral-200 px-3 py-2.5 text-sm outline-none focus:border-emerald-400"
         >
-          <option>All Status</option>
-          <option>For Rent</option>
-          <option>For Sale</option>
+          <option value="">All Status</option>
+          <option value="Rent">For Rent</option>
+          <option value="Buy">For Sale</option>
         </select>
       </div>
 
@@ -84,10 +92,9 @@ export default function SrchBox() {
           onChange={(e) => setType(e.target.value)}
           className="w-full rounded-xl border border-neutral-200 px-3 py-2.5 text-sm outline-none focus:border-emerald-400"
         >
-          <option>All Type</option>
-          <option>Apartment</option>
-          <option>Villa</option>
-          <option>Studio</option>
+          <option value="">All Type</option>
+          <option value="Residential">Residential</option>
+          <option value="Commercial">Commercial</option>
         </select>
       </div>
 
